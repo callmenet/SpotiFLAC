@@ -363,7 +363,7 @@ jobs:
     name: Create Release
     needs: [build-windows, build-macos, build-linux, build-linux-arm64-headless]
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
     permissions:
       contents: write
     steps:
